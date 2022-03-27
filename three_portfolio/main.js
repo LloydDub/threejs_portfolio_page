@@ -60,6 +60,18 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load("space.jpg");
 scene.background = spaceTexture;
 
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  mars.rotation.x += 0.05;
+  mars.rotation.y += 0.075;
+  mars.rotation.z += 0.05;
+
+  lloyd.rotation.y += 0.01;
+  lloyd.rotation.z += 0.01;
+}
+
+document.body.onscroll = moveCamera;
+
 function animate() {
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;
@@ -68,5 +80,28 @@ function animate() {
   controls.update();
   renderer.render(scene, camera);
 }
+
+//avatar
+const lloydTexture = new THREE.TextureLoader().load("./me.jpg");
+
+const lloyd = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.MeshBasicMaterial({ map: lloydTexture })
+);
+
+scene.add(lloyd);
+
+//mars
+
+const marsTexture = new THREE.TextureLoader().load("./8k_mars.jpg");
+const mars = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: marsTexture,
+  })
+);
+// mars.position.z = 30;
+// mars.position.setX(-10);
+scene.add(mars);
 
 animate();

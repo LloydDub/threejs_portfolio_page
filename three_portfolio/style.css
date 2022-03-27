@@ -3,3 +3,7 @@ canvas {
   top: 0;
   bottom: 0;
 }
+
+main {
+  position: absolute;
+}
