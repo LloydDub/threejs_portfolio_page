@@ -12,7 +12,9 @@ canvas {
   font-weight: 400;
   font-style: normal;
 }
-
+#quote {
+  font-size: 1.5em;
+}
 main {
   width: 100vw;
   color: white;
@@ -68,11 +70,35 @@ blockquote {
 blockquote p {
   color: black;
   background-color: white;
-  font-size: 4rem;
+  font-size: 3rem;
   display: inline;
   line-height: 1;
 }
 
 .left {
   grid-column: 6 / 12;
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
